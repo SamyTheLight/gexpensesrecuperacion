@@ -1,0 +1,33 @@
+R11: [M07UF2] [M03UF6] Pantalla de login - validació. //Óscar
+R12: [M07UF2] [M03UF6] La contrasenya està encriptada a la BD de forma segura.// HECHO 
+R14: [M09UF1] [M07UF2] Plantilla de pàgines - layout //POR HACER (Mostrar nombre de usuario en el nav) //Joan
+R15: [M09UF1] Pàgina home - layout //HECHO
+R16: [M07UF2] [M03UF6] Pàgina home - Activitats // POR HACER(borrar campos cuando no se da enviar para no generar insert repetidos ) // Óscar
+R17: [M09UF1] Pàgina home - Afegir activitat - Layout // POR HACER (diseño con flex) // Óscar
+R18: [M09UF1] [M06UF2] Pàgina home - Afegir activitat - Formulari dinàmic ( Mostrar i ocultar formulario)  //Óscar
+R19: [M07UF2] [M03UF6] Pàgina home - Afegir activitat - enviar (abrir página de invitaciones) //Joan 
+Distribució dels requisits
+6. Sprint #3
+R99:[S] motxilla
+R48: [M08UF2] Crear un escenari vagrant autoconfigurable amb la base de dades// POR HACER (crear usuario root i cambiar localhost por ip del servidor del entorno Vagrant) //Samu
+R20: [M09UF1] Pàgina invitacions - layout // POR HACER ( mostrar datos actividad realizada en formulario i diseño flex) // Joan 
+R21: [M09UF1] [M06UF2] Pàgina invitacions - afegir invitació // POR HACER(crear dinámicamente con javascript emails, guardarlos en array i mandarlos a Invitacions.php) //Joan
+R22: [M09UF1] [M06UF2] Pàgina invitacions - gestió d’errors // HECHO
+R27: [M09UF1] [M06UF2] Pàgina invitacions - esborrar invitacions // DONE (falta conectar script en js)
+R23: [M07UF2] Pàgina invitacions - enviar invitacions // HECHO 
+R24: [M09UF1] Disseny del email de registre en HTML (amplada màxima 600px) + text pla // POR HACER //Joan
+R25: [M09UF1] Disseny del email d’invitació en HTML (amplada màxima 600px) + text pla // POR HACER //Joan
+R26: [M07UF2] Pàgina invitacions - confirmació enviaments  // Samu 
+R29: [M07UF2] [M03UF6] Pàgina invitacions - Un usuari donat d’alta que rep un correu per afegir-se a una activitat té la opció d’afegir-s’hi o no //MIRAR TOTS
+R32: [M09UF1] [M06UF2] Pàgina registre - layout // HECHO
+R33: [M07UF2] Pàgina registre - registrar nou usuari // POR HACER (asignar usuario correctamente) //JOAN
+R28: [M07UF2] [M03UF6] Email d’usuari no registrat i apuntat a una activitat //POR HACER (vincular a la activitat)//JOAN 
+
+
+Documentació i guia d'estils /Tots
+
+Maquetació Home.css i Invitacions.css /Samuel 
+
+Gtilab desktop creación ramas personales, dev, prod // Joan
+
+Estructuración carpeta // Óscar Samu 
