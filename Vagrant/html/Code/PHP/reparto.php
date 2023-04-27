@@ -30,7 +30,7 @@ endforeach;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/html/Code/Styles/pagos.css">
+    <link rel="stylesheet" href="../Styles/pagos.css?version=1">
     <title>Pagos</title>
 </head>
 
@@ -79,7 +79,7 @@ endforeach;
     </div>
 
 </body>
-<script src="/html/Code/Scripts/reparto.js"></script>
+<script src="../Scripts/reparto.js?version=1"></script>
 <?php
 include 'footer.php';
 ?>

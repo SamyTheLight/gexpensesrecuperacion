@@ -23,7 +23,7 @@
 <body>
     <div class=wit>
         <div class=padding32>
-            <img class="img-logo"src='../Images/logo.PNG' ' />
+            <img class="img-logo"src='../Images/logo.PNG'/>
             <h1 class='inline m-L'>Hola $nombre</h1>
             <p class="text">Para aceptar la invitación a la actividad, por favor, haga click al enlace que aparece en pantalla.</p>
             <br />

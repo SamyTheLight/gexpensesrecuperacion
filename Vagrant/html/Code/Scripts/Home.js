@@ -39,35 +39,39 @@ const formulario = `
         </div>
 `;
 
-const btn_cerrar = document.getElementById("btn-cerrar");
-const btn_form = document.querySelector(".btn-form");
+const btn_cerrar = document.getElementById('btn-cerrar');
+const btn_form = document.querySelector('.btn-form');
 const div = document.querySelector(".face");
-const face_card = document.querySelector(".img-card");
+const face_card = document.querySelector('.img-card');
 
-document.getElementById("form-btn").addEventListener("click", function () {
-  btn_form.insertAdjacentHTML("afterend", formulario);
-  const act = document.getElementById("tipusActivitat");
-  document
-    .getElementById("afegirActivitat")
-    .addEventListener("click", function (e) {
-      let selectedOption = act.options[act.selectedIndex];
-      if (selectedOption.value == "Viajes") {
-        const img = document.createElement("img");
-        img.src = "/Code/PHP/Images/Viaje_Combinado.png";
-        div.insertAdjacentElement("afterbegin", img);
-      } else if (selectedOption.value == "Comida") {
-        const img = document.createElement("img");
-        img.src = "/Code/PHP/Images/comida.jpg";
-        div.insertAdjacentElement("afterbegin", img);
-      } else if (selectedOption.value == "Deportes") {
-        const img = document.createElement("img");
-        img.src = "/Code/PHP/Images/deportes.jpg";
-        div.insertAdjacentElement("afterbegin", img);
-      } else if (selectedOption.value == "Ocio") {
-        const img = document.createElement("img");
-        img.src = "/Code/PHP/Images/ocio.webp";
-        div.insertAdjacentElement("afterbegin", img);
-      }
-      window.location.href = "Invitaciones.php";
+
+
+document.getElementById('form-btn').addEventListener('click', function () {
+    
+    btn_form.insertAdjacentHTML('afterend', formulario);
+    const act = document.getElementById('tipusActivitat');
+    document.getElementById('afegirActivitat').addEventListener('click', function (e) {
+        let selectedOption = act.options[act.selectedIndex];
+        if (selectedOption.value == "Viajes") {
+            const img = document.createElement('img');
+            img.src = "/Code/PHP/Images/Viaje_Combinado.png"
+            div.insertAdjacentElement("afterbegin",img)
+        }else if(selectedOption.value == "Comida"){
+            const img = document.createElement('img');
+            img.src = "/Code/PHP/Images/comida.jpg"
+            div.insertAdjacentElement("afterbegin",img)
+        }else if(selectedOption.value == "Deportes"){
+            const img = document.createElement('img');
+            img.src = "/Code/PHP/Images/deportes.jpg"
+            div.insertAdjacentElement("afterbegin",img)
+        }else if(selectedOption.value == "Ocio"){
+            const img = document.createElement('img');
+            img.src = "/Code/PHP/Images/ocio.webp"
+            div.insertAdjacentElement("afterbegin",img)
+        }
+        window.location.href = "Invitaciones.php";
     });
+    
+
+
 });

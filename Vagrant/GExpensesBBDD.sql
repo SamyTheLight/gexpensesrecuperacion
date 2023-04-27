@@ -1,13 +1,10 @@
 CREATE USER 'gexpensesuser'@'%' IDENTIFIED BY '1234';
 GRANT CREATE,ALTER,INSERT,UPDATE,SELECT,DELETE,DROP,REFERENCES, RELOAD  ON * . * TO 'gexpensesuser'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
+
 DROP DATABASE IF EXISTS GExpensesBBDD;
 CREATE DATABASE GExpensesBBDD;
 USE GExpensesBBDD; 
-
-SET FOREIGN_KEY_CHECKS=0;
-
-
 
 
 DROP TABLE IF EXISTS `activitat`;
@@ -143,6 +140,5 @@ MODIFY
 
 ALTER TABLE
   `reparto`
-ADD
-  CONSTRAINT fk_reparto_pagos FOREIGN KEY (pago_id) REFERENCES pagos (id_pago);
-
+-- ADD
+--   CONSTRAINT fk_reparto_pagos FOREIGN KEY (pago_id) REFERENCES pagos (id_pago);

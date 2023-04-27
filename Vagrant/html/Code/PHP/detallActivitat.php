@@ -39,7 +39,7 @@ endforeach;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="stylesheet" href="/html/Code/Styles/detallActivitat.css">
+    <link rel="stylesheet" href="../Styles/detallActivitat.css?version=1">
     <title>Detall Activitat</title>
 </head>
 
@@ -105,7 +105,7 @@ endforeach;
 
 
 </body>
-<script src="/html/Code/Scripts/detallActivitat.js"></script>
+<script src="../Scripts/detallActivitat.js?version=1"></script>
 <?php
 include 'footer.php';
 ?>

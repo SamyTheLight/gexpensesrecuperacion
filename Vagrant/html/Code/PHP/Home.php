@@ -3,7 +3,8 @@ session_start();
 include 'nav.php';
 $sessionUserId = $_SESSION['id_usuario'];
 include 'ConexionDB.php';
-
+include 'user_is_logued.php';
+//var_dump($_SESSION['id_usuario']);
 
 
 $query = "SELECT * FROM activitat  where usuario_id='" . $_SESSION['id_usuario'] . "' ORDER BY Fecha DESC";
@@ -21,36 +22,20 @@ if ((isset($_POST['enviarActivitat']))) {
         $tipusDivisa = $_POST["divisa"];
         $tiposActivitat = $_POST["tipusActivitat"];
 
+        var_dump("nomActivitat");
+        var_dump("descripcionActivitat");
+        var_dump("divisa");
+        var_dump("tipusActivitat");
 
-        $queryActividad = "INSERT INTO activitat (Nombre,Descripcion,Divisa,Fecha,usuario_id,TipusAct) VALUES (:nombreA,:descripcionA,:divisaA,:fechaA,:userIdA,:tiposA)";
-
-
-        $CurrentDate = date_create("now")->format("Y-m-d H:i:s"); //date('Y-m-d H:i:s', strtotime('+1 hour'));
-
-
-
+        $queryActividad = "INSERT INTO activitat (Nombre,Descripcion,Divisa,usuario_id,TipusAct) VALUES (:nombreA,:descripcionA,:divisaA,:userIdA,:tiposA)";
 
         $consultaActivitat = $conexion->prepare($queryActividad);
 
         $consultaActivitat->bindParam(':nombreA', $nombreA);
-        // var_dump($nombreA);
-        // die();
         $consultaActivitat->bindParam(':descripcionA', $descripcioActivitat);
-        // var_dump($descripcioActivitat);
-        // die();
         $consultaActivitat->bindParam(':divisaA', $tipusDivisa);
-        // var_dump($tipusDivisa);
-        // die();
-
-        $consultaActivitat->bindParam(':fechaA', $CurrentDate);
-        // var_dump($CurrentDate);
-        // die();
-        $auxId = (int)$sessionUserId;
-        $consultaActivitat->bindParam(':userIdA', $auxId);
-
+        $consultaActivitat->bindParam(':userIdA', $sessionUserId);
         $consultaActivitat->bindParam(':tiposA', $tiposActivitat);
-        // var_dump($tiposActivitat);
-        // die();
 
         if ($consultaActivitat->execute()) {
             echo 'Envio bien';
@@ -69,7 +54,7 @@ if ((isset($_POST['enviarActivitat']))) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/html/Code/Styles/Home.css">
+    <link rel="stylesheet" href="../Styles/Home.css?version=1">
     <title>Home</title>
 </head>
 
@@ -88,9 +73,6 @@ if ((isset($_POST['enviarActivitat']))) {
             $stmt = $conexion->query($queryasc);
             $ordena = $stmt->fetchAll(PDO::FETCH_OBJ);
         }
-
-
-
         ?>
         <!-- CARDS DE LES ACTIVITATS -->
         <div id="act-list">
@@ -106,7 +88,7 @@ if ((isset($_POST['enviarActivitat']))) {
                         $queryEmail->execute();
                         $user = $queryLogin->fetch(PDO::FETCH_ASSOC);*/
                         ?>
-                    <img src="/Code/PHP/Images/Viaje_Combinado.png" alt="">
+                    <img src="Images/Viaje_Combinado.png" alt="">
                     <h3><?php echo strtoupper($row->Nombre) ?></h3>
                 </div>
                 <div class="face back">
@@ -125,7 +107,7 @@ if ((isset($_POST['enviarActivitat']))) {
     </div>
 
 </body>
-<script src="/html/Code/Scripts/Home.js"></script>
+<script src="../Scripts/Home.js?version=1"></script>
 
 </html>
 <?php
