@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
   config.vm.hostname = "GExpenses"
   config.vm.define "GExpenses"
-  config.vm.synced_folder "html/Code/", "/var/www/html"
+  config.vm.synced_folder "html/", "/var/www/html"
   config.vm.network "private_network", ip: "172.16.0.10" 
   config.vm.network "forwarded_port", guest: 80, host: 8089 # http
   config.vm.provision "shell", path: "script.sh"
