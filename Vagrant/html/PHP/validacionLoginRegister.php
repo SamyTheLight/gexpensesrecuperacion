@@ -1,6 +1,21 @@
 <?php
-function validarDadesFormulari($firstname, $email, $passwordReg, $valid)
+function validarDadesFormulari($firstname, $email, $passwordReg, $valid, $conexion)
 {
+    // Verificar si el nombre de usuario o el correo electrónico ya existen
+    $query = "SELECT COUNT(*) FROM usuario WHERE nombre = :nombre OR email = :email";
+    $consulta = $conexion->prepare($query);
+    $consulta->bindParam(':nombre', $firstname);
+    $consulta->bindParam(':email', $email);
+    $consulta->execute();
+    $count = $consulta->fetchColumn();
+
+    if ($count > 0) {
+        // El nombre de usuario o el correo electrónico ya existen
+        $valid = false;
+        echo "El nombre de usuario o el correo electrónico ya están en uso.";
+        return false;
+    }
+
     $password_regex = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/";
     if ((empty($firstname))) {
         $valid = false;
@@ -28,7 +43,7 @@ if ((!empty($_POST))) {
 
     $valid = true;
 
-    $resultatvalidacio = validarDadesFormulari($firstname, $email, $passwordReg, $valid);
+    $resultatvalidacio = validarDadesFormulari($firstname, $email, $passwordReg, $valid, $conexion);
 
     if ($resultatvalidacio == true) {
         $hash_password = password_hash($passwordReg, PASSWORD_DEFAULT);
