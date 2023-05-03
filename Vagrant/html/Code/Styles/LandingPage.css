@@ -4,7 +4,8 @@
 }
 
 body {
-  background-image: url("../PHP/Images/landscape-outdoor-mountains-galaxy-4k-u3-1920x1080\ \(1\).jpg");
+  /* background-image: url("../PHP/Images/landscape-outdoor-mountains-galaxy-4k-u3-1920x1080\ \(1\).jpg"); */
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(49,48,129,1) 25%, rgba(68,68,167,1) 41%, rgba(0,212,255,1) 100%);
   font-family: "Inter", sans-serif;
 }
 

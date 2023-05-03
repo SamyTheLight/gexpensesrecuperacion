@@ -12,7 +12,7 @@ include 'validacionLoginRegister.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/LandingPage.css?version=1">
+    <link rel="stylesheet" href="../Styles/LandingPage.css?version=2">
     <title>Document</title>
 </head>
 
@@ -33,7 +33,7 @@ include 'validacionLoginRegister.php';
         </div>
         <div class="data">
 
-            //Formulario Login
+            
             <form action="" class="form_block formulari-login" method="POST">
                 <h2>Iniciar Sesión</h2><br>
                 <div id="error-message"></div>
@@ -46,7 +46,7 @@ include 'validacionLoginRegister.php';
                 </button>
             </form>
 
-            //Formulario Registro
+            
             <form action="" id="formRegistre" class="form_block formulari-register" method="POST">
                 <h2>Regístrate</h2>
                 <input type="text" placeholder="Nombre de Usuario" class="input-nameuser-register"

@@ -15,9 +15,6 @@ if ((isset($_POST['enviarActivitat2']))) {
         var_dump("pagador");
         $membersPago = $_POST["members"];
 
-
-
-
         $countPago = count($membersPago);
         var_dump($countPago);
 
@@ -72,7 +69,7 @@ if ((isset($_POST['enviarActivitat2']))) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/pagos.css?version=1">
+    <link rel="stylesheet" href="../Styles/pagos.css?version=3">
     <title>Pagos</title>
 </head>
 
@@ -104,18 +101,14 @@ if ((isset($_POST['enviarActivitat2']))) {
                     <label for="mensaje">Pagador</label>
                     <select name="pagador" id="divisa" class="pagadores">
                         <option selected disabled value="" class="pagador">Elige un pagador</option>
-                        <option value="Oscar" class="pagador">Oscar</option>
-                        <option value="Joan" class="pagador">Joan</option>
-                        <option value="Samuel" class="pagador">Samuel</option>
+                        <option value="Oscar" class="pagador">User1</option>
+                        <option value="Joan" class="pagador">User2</option>
+                        <option value="Samuel" class="pagador">User3</option>
                     </select>
                     <label for="tipusAct">Miembros</label>
-                    <input type="checkbox" value="Oscar" name="members[]" id="users" class="users"> <label id="user"
-                        for="">Oscar</label>
-                    <input type="checkbox" value="Joan" name="members[]" id="users" class="users"> <label id="user"
-                        for="">Joan</label>
-                    <input type="checkbox" value="Samuel" name="members[]" id="users" class="users"> <label id="user"
-                        for="">Samuel</label>
-
+                    <label id="user" for="">User1 <input type="checkbox" value="User1" name="members[]" id="users" class="users"></label>
+                    <label id="user" for="">User2 <input type="checkbox" value="User1" name="members[]" id="users" class="users"></label>
+                    <label id="user" for="">User3 <input type="checkbox" value="User1" name="members[]" id="users" class="users"></label>
                     <button class="btn-card" name="enviarActivitat2">GUARDAR</button>
                 </div>
             </form>
