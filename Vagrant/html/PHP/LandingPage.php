@@ -38,8 +38,7 @@ include 'validacionLoginRegister.php';
                 <h2>Iniciar Sesión</h2><br>
                 <div id="error-message"></div>
                 <input type="text" placeholder="Nombre de Usuario" class="input-nameuser-login" name="usernameLogin">
-                <input placeholder="Password" type="password" class="input-password-login" placeholder="Password"
-                    name="passwordLogin">
+                <input placeholder="Password" type="password" class="input-password-login" placeholder="Password" name="passwordLogin">
                 <!-- Mensaje de error Login -->
                 <button id="buttonLogin" name="buttonLogin" value="1">
                     <h3>Login</h3>
