@@ -17,8 +17,6 @@ const formRegistre = document.getElementById("formRegistre");
 const password = document.getElementById("input-password2-register");
 const buttonRegister = document.getElementById("buttonRegister");
 const exprMail = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-const exprPassword =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
 
 let validR = 0;
 
@@ -80,20 +78,3 @@ function loguear(first_time = false) {
   back_login.style.opacity = "0";
   back_register.style.opacity = "1";
 }
-
-//Validar inputs login
-// const form = document.querySelector('.form_block formulari-login');
-// const usernameInput = document.querySelector('.input-nameuser-login');
-// const passwordInput = document.querySelector('.input-password-login');
-// const errorMessage = document.querySelector('#error-message');
-
-// form.addEventListener('submit', (event) => {
-//   event.preventDefault();
-
-//   const username = usernameInput.value.trim();
-//   const password = passwordInput.value.trim();
-
-//   if(username === ''){
-    
-//   }
-// })

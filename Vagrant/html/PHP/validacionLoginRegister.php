@@ -1,7 +1,8 @@
+// Validación inputs Login y Registro
 <?php
 function validarDadesFormulari($firstname, $email, $passwordReg, $valid, $conexion)
 {
-    // Verificar si el nombre de usuario o el correo electrónico ya existen
+    // Consulta SQL para verificar si el nombre de usuario o el correo electrónico ya existen
     $query = "SELECT COUNT(*) FROM usuario WHERE nombre = :nombre OR email = :email";
     $consulta = $conexion->prepare($query);
     $consulta->bindParam(':nombre', $firstname);
@@ -9,14 +10,19 @@ function validarDadesFormulari($firstname, $email, $passwordReg, $valid, $conexi
     $consulta->execute();
     $count = $consulta->fetchColumn();
 
+    //verifica si, la consulta SQL para comprobar si el nombre de usuario o el correo electrónico ya existen
+    //en la base de datos, ha devuelto al menos una fila. Si la ha devuelto, quiere decir que el  registro no 
+    //es valido
     if ($count > 0) {
-        // El nombre de usuario o el correo electrónico ya existen
         $valid = false;
         echo "El nombre de usuario o el correo electrónico ya están en uso.";
         return false;
     }
 
+    //Expresion regular contraseña: 8 caracteres, 1 mayuscula, 1 minuscula y 1 caracter especial.
     $password_regex = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/";
+
+    //Si los inputs del registro o login están vacios, manda mensaje de error
     if ((empty($firstname))) {
         $valid = false;
     }
@@ -35,6 +41,8 @@ function validarDadesFormulari($firstname, $email, $passwordReg, $valid, $conexi
     return $valid;
 }
 
+//Si los inputs no están vacios, se recogen los valores enviados para el nombre de usuario, 
+//correo electrónico y contraseña. 
 if ((!empty($_POST))) {
 
     $firstname = $_POST["username"];
@@ -43,10 +51,16 @@ if ((!empty($_POST))) {
 
     $valid = true;
 
+    //Se llama a la función validarDadesFormulari para validar los datos del formulario. 
     $resultatvalidacio = validarDadesFormulari($firstname, $email, $passwordReg, $valid, $conexion);
 
+    //Si esta función devuelve true, todos los campos del formulario han pasado la validación
     if ($resultatvalidacio == true) {
+
+        //Generamos con la funcion password_hash un hash de la contraseña del usuario
         $hash_password = password_hash($passwordReg, PASSWORD_DEFAULT);
+
+        //Guardamos los datos en la tabla usuario de la base de datos
         $query = "INSERT INTO usuario (nombre,email,contrasena) VALUES (:nombre,:email,:contrasena)";
 
         $consulta = $conexion->prepare($query);
