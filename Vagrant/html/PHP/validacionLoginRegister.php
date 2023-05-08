@@ -74,12 +74,15 @@ if ((!empty($_POST))) {
     }
 }
 
+//Si el usuario ha dado click en el botón Login
 if ((isset($_POST['buttonLogin']))) {
 
+    //Obtenemos los datos del formulario username y password
     $nameuserL = $_POST['usernameLogin'];
 
     $passwordL = $_POST['passwordLogin'];
 
+    //Se hashea la contraseña introducida en el formulario de login
     $hash_passwordLogin = password_hash($passwordL, PASSWORD_DEFAULT);
 
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -92,13 +95,19 @@ if ((isset($_POST['buttonLogin']))) {
 
     $user = $queryLogin->fetch(PDO::FETCH_ASSOC);
 
+    //Si el nombre de usuario no existe en la base de datos, manda mensaje de error
     if (!$user) {
         echo '<div class="error-message">El usuario no existe en la base de datos.</div>';
+
+    //Se verifica si la contraseña proporcionada por el usuario coincide con la contraseña encriptada 
+    //en la base de datos con la funcion password_verify()
     } else if (password_verify($passwordL, $user['contrasena'])) {
         $_SESSION['usuario'] = $nameuserL;
         $_SESSION['id_usuario'] = $user['id_usuario'];
 
         header("location: PHP/Home.php");
+
+    //Si la contraseña no coincide con la de la base de datos, manda un mensaje de error
     } else {
         echo '<div class="error-message">Contraseña incorrecta.</div>';
     }
