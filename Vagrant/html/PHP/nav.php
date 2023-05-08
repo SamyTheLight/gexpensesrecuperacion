@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'ConexionDB.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -16,20 +15,16 @@ include 'ConexionDB.php';
 </head>
 
 <body>
-
     <div class="header">
-
         <!--Imagen/Logo-->
         <div class="header-img">
             <img class="img-logo" src="./Images/logo.PNG">
             <h1>GE</h1>
             <h1 class="h1">XPENSES</h1>
         </div>
-
         <div class="btn-menu">
             <label for="btn-menu" class="icon-menu"><i class="fa-solid fa-bars"></i></label>
         </div>
-
         <!--Menu del header-->
         <div class="header-nav">
             <nav class="navbar">
@@ -47,7 +42,6 @@ include 'ConexionDB.php';
                 </div>
             </nav>
         </div>
-
     </div>
     <script src="Scripts/nav.js"></script>
 </body>

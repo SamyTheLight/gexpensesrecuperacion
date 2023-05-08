@@ -4,8 +4,6 @@ include 'nav.php';
 $sessionUserId = $_SESSION['id_usuario'];
 include 'ConexionDB.php';
 include 'user_is_logued.php';
-//var_dump($_SESSION['id_usuario']);
-
 
 $query = "SELECT * FROM activitat  where usuario_id='" . $_SESSION['id_usuario'] . "' ORDER BY Fecha DESC";
 $stmt = $conexion->query($query);
@@ -21,11 +19,6 @@ if ((isset($_POST['enviarActivitat']))) {
 
         $tipusDivisa = $_POST["divisa"];
         $tiposActivitat = $_POST["tipusActivitat"];
-
-        var_dump("nomActivitat");
-        var_dump("descripcionActivitat");
-        var_dump("divisa");
-        var_dump("tipusActivitat");
 
         $queryActividad = "INSERT INTO activitat (Nombre,Descripcion,Divisa,usuario_id,TipusAct) VALUES (:nombreA,:descripcionA,:divisaA,:userIdA,:tiposA)";
 
