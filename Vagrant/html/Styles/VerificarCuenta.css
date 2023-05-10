@@ -1,0 +1,30 @@
+.formVerifyAccount {
+  width: 800px;
+  height: 600px;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  top: 20%;
+  left: 30%;
+  position: absolute;
+  border: 2px solid black;
+  flex-direction: column;
+}
+
+.formVerifyAccount h1 {
+  width: 620px;
+  height: 120px;
+  font-size: 39px;
+}
+
+.formVerifyAccount input {
+  width: 520px;
+  height: 33px;
+}
+
+.formVerifyAccount button {
+  width: 120px;
+  height: 40px;
+}
