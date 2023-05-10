@@ -1,29 +1,30 @@
 <?php
 session_start();
 include 'nav.php';
+//Obtiene el id del usuario que ha iniciado sesion
 $sessionUserId = $_SESSION['id_usuario'];
 include 'ConexionDB.php';
 include 'user_is_logued.php';
 
+//Consulta para recuperar todas las actividades del usuario logueado (por id) de la base de datos
 $query = "SELECT * FROM activitat  where usuario_id='" . $_SESSION['id_usuario'] . "' ORDER BY Fecha DESC";
 $stmt = $conexion->query($query);
 $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
 
+//Si el formulario "enviarActivitat" se ha enviado...
 if ((isset($_POST['enviarActivitat']))) {
 
     if ((!empty($_POST['nomActivitat'])) && (!empty($_POST['descripcionActivitat']))) {
 
+        //Obtenemos los valores del formulario 
         $nombreA = $_POST["nomActivitat"];
-
         $descripcioActivitat = $_POST["descripcionActivitat"];
-
         $tipusDivisa = $_POST["divisa"];
         $tiposActivitat = $_POST["tipusActivitat"];
 
+        //Insertamos una nueva actividad a la BD
         $queryActividad = "INSERT INTO activitat (Nombre,Descripcion,Divisa,usuario_id,TipusAct) VALUES (:nombreA,:descripcionA,:divisaA,:userIdA,:tiposA)";
-
         $consultaActivitat = $conexion->prepare($queryActividad);
-
         $consultaActivitat->bindParam(':nombreA', $nombreA);
         $consultaActivitat->bindParam(':descripcionA', $descripcioActivitat);
         $consultaActivitat->bindParam(':divisaA', $tipusDivisa);

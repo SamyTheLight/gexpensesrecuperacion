@@ -3,10 +3,13 @@ session_start();
 include 'nav.php';
 include 'ConexionDB.php';
 
+//Se verifica si se ha presionado el botón ENVIAR actividad
 if ((isset($_POST['enviarActivitat2']))) {
 
+    //Si los campos "concepto" e "importe" no están vacios...
     if ((!empty($_POST['concepto'])) && (!empty($_POST['import']))) {
 
+        //Recuperamos los valores "concepto", "importe", "pagador" y "members" del formulario
         $concepto = $_POST["concepto"];
         var_dump("concepto");
         $cantidad = $_POST["import"];
@@ -15,38 +18,30 @@ if ((isset($_POST['enviarActivitat2']))) {
         var_dump("pagador");
         $membersPago = $_POST["members"];
 
+        //cContamos la cantidad de miembros seleccionados mediante el campo "members".
         $countPago = count($membersPago);
         var_dump($countPago);
 
-
+        //Insertamos un nuevo pago en la base de datos
         $queryActividad = "INSERT INTO pagos (concepto,cantidad,pagador) VALUES (:conceptoA,:cantidadA,:pagadorA)";
-
         $consultaActivitat = $conexion->prepare($queryActividad);
-
         $consultaActivitat->bindParam(':conceptoA', $concepto);
-
         $consultaActivitat->bindParam(':cantidadA', $cantidad);
-
         $consultaActivitat->bindParam(':pagadorA', $pagador);
-
-
         $consultaActivitat->execute();
 
-        $queryPago = $conexion->prepare("SELECT MAX(id_pago) FROM pagos 
-            ");
-
+        //Consulta para recuperar el id del último pago insertado en la base de datos
+        $queryPago = $conexion->prepare("SELECT MAX(id_pago) FROM pagos ");
         $queryPago->execute();
-
         $id_pago = $queryPago->fetch(PDO::FETCH_OBJ);
         var_dump($id_pago);
 
-
-
+        //Por cada miembro seleccionado en el campo "members", se prepara una consulta para insertar un nuevo registro 
+        //en la tabla "reparto". Se utiliza el id del último pago insertado y se calcula el importe a repartir entre 
+        //los miembros seleccionados.
         foreach ($membersPago as $rowMembers) :
             $queryActividad1 = "INSERT INTO reparto (members,cantidad_pago,user_member,importe_repartido,pago_id) VALUES (:RowMembers,:cantidadA,:membersPagoA,:importeA,:id_pago)";
-
             $consultaActivitat1 = $conexion->prepare($queryActividad1);
-
             $consultaActivitat1->bindParam(':RowMembers', $countPago);
             $consultaActivitat1->bindParam(':cantidadA', $cantidad);
             $consultaActivitat1->bindParam(':membersPagoA', $rowMembers);
