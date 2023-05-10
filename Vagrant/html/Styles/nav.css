@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+}
+
+.header {
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1c3144;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+}
+
+.header-img {
+  display: flex;
+  align-items: center;
+}
+
+.header-img p {
+  font-size: 22px;
+}
+
+.header-tittle {
+  display: flex;
+  flex-direction: row;
+  width: 15px;
+  margin-left: 5px;
+  color: #6cd4b5;
+}
+
+.h1 {
+  margin-left: 0px;
+  color: white;
+}
+h1 {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+.img-logo {
+  width: 45px;
+  margin-left: 5px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-bar a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-bar li {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  line-height: normal;
+  font-size: 16px;
+  font-weight: bold;
+
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.navbar-bar li:hover {
+  background: #6cd4b5;
+  border-radius: 100px;
+}
+
+.header-nav {
+  margin-right: 40px;
+}
+
+.textlogo {
+  margin-left: 10px;
+}
+
+.hamburger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+@media (max-width: 750px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar-bar {
+    position: fixed;
+    right: -100%;
+    top: 74px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  .nav-item {
+    margin: 8px 0;
+  }
+
+  .navbar-bar.active {
+    right: 0;
+  }
+
+  .navbar-bar li {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    color: #1c3144;
+    line-height: normal;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #1c3144;
+
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+  }
+
+  .navbar-bar li:hover {
+    background: #6cd4b5;
+    border-radius: 0px;
+  }
+}
